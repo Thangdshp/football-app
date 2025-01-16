@@ -1,4 +1,6 @@
-// Danh sách cầu thủ và tier (Admin nhập vào)
+// Danh sách cầu thủ và tier (Admin nhập vào)]
+const localStorage = window.localStorage;
+
 let players = JSON.parse(localStorage.getItem('players')) || [];
 let teams = { A: [], B: [] };
 let goals = {};
