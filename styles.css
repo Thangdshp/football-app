@@ -1,0 +1,499 @@
+/* Basic styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+#tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}
+
+button {
+    padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động khi hover */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Table styling */
+table {
+    width: 50%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f1f1;
+}
+
+/* Attendance and team list styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+/* Style cho phần Điểm Danh */
+#attendance {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.attendance-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.attendance-list li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-size: 16px;
+    color: #333;
+}
+
+.attendance-list li:hover {
+    transform: scale(1.05);
+    background-color: #e9e9e9;
+}
+
+.attendance-list li button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.attendance-list li button.attended {
+    background-color: #45a049;
+}
+
+.attendance-list li button:hover {
+    background-color: #d32f2f;
+}
+
+.attendance-list li button.attended:hover {
+    background-color: #45a049;
+}
+
+/* Style cho trang Teams */
+#teams {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style cho danh sách cầu thủ */
+.attendance-list {
+    margin-top: 20px;
+}
+
+.attendance-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.attendance-list li button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d32f2f;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+/* Nút "Đã điểm danh" (✅) */
+button.attended {
+    background-color: #28a745; /* Màu xanh */
+    color: white;
+}
+
+button.attended:hover {
+    background-color: #218838; /* Màu xanh đậm khi hover */
+}
+
+/* Nút "Chưa điểm danh" (❌) */
+button.not-attended {
+    background-color: #dc3545; /* Màu đỏ */
+    color: white;
+}
+
+button.not-attended:hover {
+    background-color: #c82333; /* Màu đỏ đậm khi hover */
+}
+
+/* Nút reset (xóa điểm danh tất cả) */
+#resetAttendanceBtn {
+    background-color: #007bff; /* Màu xanh dương */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+}
+
+#resetAttendanceBtn:hover {
+    background-color: #0056b3; /* Màu xanh dương đậm khi hover */
+}
+
+/* Style cho phần chia đội */
+.team-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.team {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.team h3 {
+    text-align: center;
+    color: #333;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Căn giữa tên cầu thủ và nút điểm danh */
+    padding: 10px;
+    border: 1px solid #ddd; /* Đường viền nhẹ cho các mục */
+    border-radius: 10px;
+    background-color: #f9f9f9; /* Màu nền nhẹ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho mỗi cầu thủ */
+    font-size: 18px;
+    height: 50px; /* Đặt chiều cao cố định cho mỗi mục */
+}
+
+.divide-teams-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.divide-teams-btn:hover {
+    background-color: #45a049;
+}
+
+#attendanceList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Tự động chia cột theo chiều rộng */
+    gap: 15px; /* Khoảng cách giữa các cầu thủ */
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    max-height: 500px; /* Giới hạn chiều cao */
+    overflow-y: auto; /* Cho phép cuộn dọc nếu quá nhiều cầu thủ */
+}
+
+#playerList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Thêm hiệu ứng chuyển động khi nút reset bị nhấn */
+@keyframes resetEffect {
+    0% { background-color: #007bff; }
+    100% { background-color: #0056b3; }
+}
+
+#resetAttendanceBtn:active {
+    animation: resetEffect 0.2s forwards;
+}
+
+/* Tổng quan trang Admin Panel */
+#adminPanel {
+    background-color: #f4f7fc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tiêu đề Admin Panel */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Cấu trúc bảng cầu thủ */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+th {
+    background-color: #C70101;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    background-color: #303030;
+    color: #fff;
+}
+
+/* Hiệu ứng hover cho các dòng bảng */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Nút điều khiển (Sửa và Xóa) */
+button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+/* Nút "Sửa" (Edit) */
+button.edit {
+    background-color: #ffc107; /* Màu vàng */
+    color: white;
+}
+
+button.edit:hover {
+    background-color: #e0a800; /* Màu vàng đậm */
+}
+
+/* Nút "Xóa" (Delete) */
+button.delete {
+    background-color: #dc3545; /* Màu đỏ */
+    color: white;
+}
+
+button.delete:hover {
+    background-color: #c82333; /* Màu đỏ đậm */
+}
+
+/* Nút "Thêm cầu thủ mới" */
+#addPlayerBtn {
+    background-color: #28a745; /* Màu xanh lá */
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+#addPlayerBtn:hover {
+    background-color: #218838; /* Màu xanh lá đậm */
+}
+
+/* Phần thông báo thành công hay lỗi */
+.notification {
+    padding: 15px;
+    background-color: #f8d7da; /* Màu đỏ nhạt */
+    color: #721c24;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-size: 16px;
+    display: none; /* Ẩn thông báo mặc định */
+}
+
+.notification.success {
+    background-color: #d4edda; /* Màu xanh nhạt */
+    color: #155724;
+}
+
+.notification.error {
+    background-color: #f8d7da; /* Màu đỏ nhạt */
+    color: #721c24;
+}
+
+/* Cột dữ liệu trong bảng */
+td.player-name, td.player-tier {
+    font-weight: bold;
+}
+
+td.player-tier {
+    text-transform: uppercase;
+}
+
+/* Tùy chỉnh cho các input */
+input[type="text"], select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 200px;
+}
+
+/* Thêm cầu thủ - form */
+#addPlayerForm {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+#addPlayerForm input[type="text"], #addPlayerForm select {
+    width: 150px;
+}
+
+/* Thiết kế cho phần tìm kiếm cầu thủ */
+#searchPlayer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+#searchPlayer input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+
+#searchPlayer button {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#searchPlayer button:hover {
+    background-color: #0056b3;
+}
+
+/* Form và các phần điều khiển cho Admin */
+#adminControls {
+    margin-top: 30px;
+}
+
+/* Hộp thông báo khi thêm cầu thủ mới */
+#addPlayerNotification {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Định dạng cho form Thêm cầu thủ mới */
+#addPlayerForm {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#addPlayerForm input, #addPlayerForm select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 200px;
+}
+

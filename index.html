@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Team Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="tabs">
+        <button class="tab-button active" onclick="showTab('admin-panel')">Manage Players</button>
+        <button class="tab-button" onclick="showTab('attendance')">Attendance</button>
+        <button class="tab-button" onclick="showTab('teams')">Teams</button>
+        <button class="tab-button" onclick="showTab('leaderboard')">Leaderboard</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
+    <div class="tab-content active" id="admin-panel">
+        <h2>Manage Players</h2>
+        
+        <!-- Form to Add New Player -->
+        <input type="text" id="adminPlayerName" placeholder="Player Name">
+        <input type="text" id="adminPlayerTier" placeholder="Tier (A, B, C)">
+        <button onclick="addPlayerToList()">Add Player</button>
+
+        <h3>Edit Player Information</h3>
+        <!-- Form to Edit Player's Information -->
+        <select id="playerSelect" onchange="selectPlayerForEdit()">
+            <option value="">Select Player to Edit</option>
+        </select>
+        <input type="text" id="editPlayerName" placeholder="New Player Name">
+        <input type="text" id="editPlayerTier" placeholder="New Tier (A, B, C)">
+        <button onclick="updatePlayerInfo()">Update Player</button>
+
+        <h3>Player List</h3>
+        <table id="adminPlayerList">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Tier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Player list will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Trang Điểm Danh -->
+<div class="tab-content" id="attendance">
+    <h2>Attendance</h2>
+    <ul id="attendanceList" class="attendance-list">
+        <!-- Các cầu thủ sẽ được hiển thị tại đây -->
+    </ul>
+    <button id="resetAttendanceBtn">Reset Attendance</button>
+</div>
+
+
+    <!-- Trang "Teams" -->
+<div class="tab-content" id="teams">
+    <h2>Teams</h2>
+
+    <div id="attendanceList" class="attendance-list">
+        <!-- Danh sách cầu thủ đã điểm danh sẽ hiển thị tại đây -->
+    </div>
+
+    <button id="divideTeamsRandomly">Divide Teams Randomly</button>
+    <button id="clearTeamsBtn">Clear Teams</button>
+
+    <div id="teamList" class="team-list">
+        <!-- Các đội sẽ được hiển thị tại đây -->
+    </div>
+</div>
+
+    <div class="tab-content" id="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboardList">
+            <!-- Leaderboard will be displayed here -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+    
+
+</body>
+</html>
